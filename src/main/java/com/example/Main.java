@@ -493,7 +493,7 @@ public class Main {
 	public DataSource dataSource() throws SQLException {
 		try {
 			HikariConfig config = new HikariConfig();
-			config.setJdbcUrl("jdbc:postgresql://34.100.236.67:5432/postgres?sslmode=require");
+			config.setJdbcUrl("jdbc:postgresql://34.100.236.67:5432/postgres");
 			config.setUsername("postgres");
 			config.setPassword("ramanoraj");
 			config.setDriverClassName("org.postgresql.Driver");
