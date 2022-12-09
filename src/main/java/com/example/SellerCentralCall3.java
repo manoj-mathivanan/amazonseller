@@ -56,8 +56,8 @@ public class SellerCentralCall3 {
 				prefs.put("profile.managed_default_content_settings.images", 2);
 				options.setExperimentalOption("prefs", prefs);
 				//options.addArguments("--incognito");
-				options.setBinary("/app/.apt/usr/bin/google-chrome");
-				System.setProperty("webdriver.chrome.driver", "/app/.chromedriver/bin/chromedriver");
+				//options.setBinary("/app/.apt/usr/bin/google-chrome");
+				System.setProperty("webdriver.chrome.driver", "/home/ma_manoj/chromedriver");
 			}
 
 			driver = new ChromeDriver(options);

@@ -492,11 +492,20 @@ public class Main {
 	@Bean
 	public DataSource dataSource() throws SQLException {
 		try {
+			HikariConfig config = new HikariConfig();
+			config.setJdbcUrl("jdbc:postgresql://34.100.236.67:5432/postgres?sslmode=require");
+			config.setUsername("postgres");
+			config.setPassword("ramanoraj");
+			config.setDriverClassName("org.postgresql.Driver");
+			//config.setDataSourceClassName("org.postgresql.ds.PGSimpleDataSource");
+			Helper.dataSource = new HikariDataSource(config);
+			return Helper.dataSource;
+			/*
 			if (Helper.isLocal) {
 				HikariConfig config = new HikariConfig();
-				config.setJdbcUrl("jdbc:postgresql://ec2-3-231-253-230.compute-1.amazonaws.com:5432/deis3do1da01lk?sslmode=require");
-				config.setUsername("urhonccktzcrrl");
-				config.setPassword("5706b60e0b1703ba312d453ee862ab3bb24090a12ee4b4b6442e672b4e37e775");
+				config.setJdbcUrl("jdbc:postgresql://34.100.236.67:5432/postgres?sslmode=require");
+				config.setUsername("postgres");
+				config.setPassword("ramanoraj");
 				config.setDriverClassName("org.postgresql.Driver");
 				//config.setDataSourceClassName("org.postgresql.ds.PGSimpleDataSource");
 				Helper.dataSource = new HikariDataSource(config);
@@ -507,7 +516,7 @@ public class Main {
 				//config.setDriverClassName("org.postgresql.ds.PGSimpleDataSource");
 				Helper.dataSource = new HikariDataSource(config);
 				return Helper.dataSource;
-			}
+			}*/
 		}catch(Exception e) {
 			e.printStackTrace();
 			return null;
