@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<link rel="stylesheet" href="css/style.css">
+
+<script src="fba_script.js" type="text/javascript"></script>
+
+
+</head>
+
+<body>
+	
+	<div class="main-container">
+		<div>
+			<header class="block2">
+				<table>
+					<tbody>
+						<tr>
+							<th>ASIN</th>
+							<th>SKU</th>
+							<th>STATUS</th>
+							<th>FBA FEE</th>
+							<th>STORAGE FEE</th>
+							<th>SELLING PRICE</th>
+							<th>PRODUCT COST</th>
+							<th>SHIPPING</th>
+							<th>NET PROFIT</th>
+							<th>% NET PROFIT</th>
+						</tr>
+					<tbody>
+				</table>
+			</header>
+		</div>
+		<div class="left-container container">
+			<div class="menu-box block">
+				<h2 class="titular">ADD ASIN</h2>
+				<ul class="menu-box-menu">
+					<li><span class="editleft">ASIN</span><span span class="editright"><input type="text" name="asin"/></span></li>
+					<li><a class="subscribe button" href="javascript:addASIN();">ADD ASIN</a></li>
+				</ul>
+			</div>
+		</div>
+
+		<div class="middle-container container">
+			<div class="menu-box block">
+				<h2 class="titular">UPDATE ASIN</h2>
+				<ul class="menu-box-menu">
+					<li><span class="editleft">ASIN</span><span span class="editright"><input type="text" name="updateasin"/></span></li>
+					<li><span class="editleft">key</span><span span class="editright">
+					
+					<select id="inputkey">
+					  <option value="sku" selected="selected">sku</option>
+					  <option value="height">selling price</option>
+					  <option value="height">cost price</option>
+					  <option value="height">shipping</option>
+					</select>
+					</span></li>
+					<li><span class="editleft">value</span><span span class="editright"><input type="text" name="inputvalue"/></span></li>
+					<li><a class="subscribe button" href="javascript:updateASIN();">Update</a></li>
+				</ul>
+			</div>
+		</div>
+			 
+		<div class="right-container container">
+			<div class="menu-box block">
+				<h2 class="titular">DELETE ASIN</h2>
+				<ul class="menu-box-menu">
+					<li><span class="editleft">ASIN</span><span class="editright"><input type="text" name="deleteasin"/></span></li>
+					<!-- <li><button class="sign-in button" onclick="deleteASIN()">Delete</button></li> -->
+					<li><a class="subscribe button" href="javascript:deleteASIN();">Delete</a></li>
+				</ul>
+			</div>
+		</div>
+		
+	</div>
+</body>
+</html>

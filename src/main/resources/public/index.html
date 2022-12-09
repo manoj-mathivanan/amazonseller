@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>PEPMART TRADERS SELLER CENTRAL</title>
+<link rel="stylesheet"
+	href="https://fonts.googleapis.com/css?family=Roboto:400,700">
+<link rel="stylesheet" href="css/fontawesome.min.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/templatemo-style.css">
+<link rel="stylesheet" href="css/popup.css">
+<link rel="stylesheet" href="css/ubcpopup.css">
+
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<link rel="stylesheet" href="https://jqueryui.com/resources/demos/style.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+
+<script src="script.js" type="text/javascript"></script>
+
+<script type="text/javascript"
+	src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+</head>
+
+
+</head>
+
+<body>
+	<div class="container" style="max-width: 100%">
+		<div class="col-16 tm-block-col">
+			<table class="table">
+				<thead>
+					<tr>
+						<th scope="col">ASIN</th>
+						<th scope="col">SKU</th>
+						<th scope="col">LENGTH</th>
+						<th scope="col">WIDTH</th>
+						<th scope="col">HEIGHT</th>
+						<th id="totalvolumeth" scope="col">I_VOLUME</th>
+						<th id="totalevolumeth" scope="col">E_VOLUME</th>
+						<th scope="col">WEIGHT</th>
+						<th id="ref" scope="col">REF</th>
+						<th scope="col">FBA</th>
+						<th scope="col" colspan="1">STG</th>
+						<th scope="col">CP</th>
+						<th scope="col">SP</th>
+						<th id="totalprofitth" scope="col" colspan="2">NET PROFIT</th>
+						<th scope="col" colspan="1">REVIEWS</th>
+						<th scope="col" colspan="1">OPS</th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+			<div>
+			</div>
+			<!-- </div> -->
+		</div>
+	</div>
+<div>
+<a href="/chart.html">>>>More options</a>
+</div>
+
+	<div class="popup_edit">
+		<span class="helper"></span>
+		<div>
+			<div class="popupCloseButton">X</div>
+			<h3>Update Product Details</h3>
+			<br />
+			<form>
+				<p>
+					<label for="asin">ASIN</label> <input id="asin" name="asin"
+						type="text" disabled />
+				</p>
+				<br />
+				<p>
+					<label for="title">SKU</label> <input id="title" name="title"
+						type="text" required />
+				</p>
+				<br />
+				<p>
+					<label for="expectedlength">Expected Length</label> <input
+						id="expectedlength" name="expectedlength" type="text" required />
+				</p>
+				<br />
+				<p>
+					<label for="expectedwidth">Expected Width</label> <input
+						id="expectedwidth" name="expectedwidth" type="text" required />
+				</p>
+				<br />
+				<p>
+					<label for="expectedheight">Expected Height</label> <input
+						id="expectedheight" name="expectedheight" type="text" required />
+				</p>
+				<br />
+				<p>
+					<label for="expectedweight">Expected Weight</label> <input
+						id="expectedweight" name="expectedweight" type="text" required />
+				</p>
+				<br />
+				<p>
+					<label for="sellingprice">Selling Price</label> <input
+						id="sellingprice" name="sellingprice" type="text" required />
+				</p>
+				<br />
+				<p>
+					<label for="productcost">Product Cost</label> <input
+						id="productcost" name="productcost" type="text" required />
+				</p>
+				<br />
+				<p>
+					<label for="shipping">Shipping Cost</label> <input id="shipping"
+						name="shipping" type="text" required />
+				</p>
+				<br />
+			</form>
+			<button onclick="update()">Update</button>
+			<button onclick="deleteASIN2()">delete</button>
+		</div>
+	</div>
+
+	<div class="ubc_edit">
+		<span class="helper"></span>
+		<div>
+			<div class="popupCloseButtonubc">X</div>
+			<h3>Update Units/Box Count</h3>
+			<br />
+			<form>
+				<p>
+					<label for="asinbc" style="text-align: right;">ASIN: </label> <input id="asinbc" name="asinbc"
+						type="text" disabled />
+				</p>
+				<br />
+				<p>
+					<label for="skubc" style="text-align: right;">SKU: </label> <input id="skubc" name="skubc"
+						type="text" disabled />
+				</p>
+				<br />
+				<p>
+					<label for="unitsbc" style="text-align: right;">Units/Box Count: </label> <input id="unitsbc" name="unitsbc"
+						type="text" />
+				</p>
+				
+				<br />
+			</form>
+			<button onclick="updateubc()">Update</button>
+		</div>
+	</div>
+
+</body>
+</html>
