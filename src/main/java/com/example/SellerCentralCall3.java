@@ -318,7 +318,7 @@ public class SellerCentralCall3 {
 	
 	public void takeScreenshotAndSendMail(String subject) {
 		sleep(3000);
-		/*
+
 		try {
 			TakesScreenshot scrShot =((TakesScreenshot)driver);
 			File SrcFile=scrShot.getScreenshotAs(OutputType.FILE);
@@ -330,9 +330,9 @@ public class SellerCentralCall3 {
 		}
 		Mailer.sendMail(subject, driver.findElement(By.tagName("body")).getText(), "ma.manoj@gmail.com");
 		Mailer.sendMail(subject, driver.findElement(By.tagName("body")).getText(), "ramshan2008@gmail.com");
-		*/
-		Mailer.sendMail(subject, "", "ma.manoj@gmail.com");
-		Mailer.sendMail(subject, "", "ramshan2008@gmail.com");
+
+		//Mailer.sendMail(subject, "", "ma.manoj@gmail.com");
+		//Mailer.sendMail(subject, "", "ramshan2008@gmail.com");
 	}
 	
 	public boolean checkLoggedIn() throws Exception {
