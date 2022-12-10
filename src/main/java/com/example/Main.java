@@ -113,12 +113,12 @@ public class Main {
 		application.run(args);
 
 		if(!Helper.isLocal) {
-			Jsoup.connect("https://pure-basin-71429.herokuapp.com/start").ignoreContentType(true).ignoreHttpErrors(true).timeout(10000).execute();
+			Jsoup.connect("http://34.93.97.27:8080/start").ignoreContentType(true).ignoreHttpErrors(true).timeout(10000).execute();
 			Mailer.sendMail("App started", "App Started", "ma.manoj@gmail.com");
 			Mailer.sendMail("App started", "App Started", "ramshan2008@gmail.com");
 		}
 		else {
-			Jsoup.connect("http://localhost:5000/start").ignoreContentType(true).ignoreHttpErrors(true).timeout(10000).execute();
+			Jsoup.connect("http://localhost:8080/start").ignoreContentType(true).ignoreHttpErrors(true).timeout(10000).execute();
 		}
 	}
 
