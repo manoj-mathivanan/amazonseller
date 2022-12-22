@@ -15,7 +15,7 @@ public class SellerCentralDimensions implements Runnable{
 		try {
 
 			Thread.sleep(Helper.delay);
-			
+			/*
 			String json3 = Helper.sellerCentral.getDimensions(Helper.asin.get(asin).title);
 			Thread.sleep(3000);
 			
@@ -30,6 +30,8 @@ public class SellerCentralDimensions implements Runnable{
 			}
 			
 			Thread.sleep(4000);
+
+			 */
 			String json2 = Helper.sellerCentral.getInventory(Helper.asin.get(asin).title);
 			Thread.sleep(3000);
 			
@@ -42,6 +44,9 @@ public class SellerCentralDimensions implements Runnable{
 				int instock = asinDetails.getInt("availableTotal") - asinDetails.getInt("inbound");
 				Helper.asin.get(asin).update("availableunits", instock+"");
 				ErrorHandler.printError("(S)Volume Dimensions","seller central success : " + asin);
+
+				Helper.asin.get(asin).updateDimensions(json2);
+				ErrorHandler.printError("(S)Dimensions","seller central success : " + asin);
 			}else {
 			
 			ErrorHandler.printError("(E)Dimensions","VOL/quantity is null");
