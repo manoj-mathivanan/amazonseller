@@ -191,8 +191,19 @@ public class SellerCentralCall3 {
 	}
 	
 	public synchronized String getDimensions(String sku) {
-		String url = "https://sellercentral.amazon.com/revenuecalculator/productmatch?searchKey="+sku+"&countryCode=US&locale=en-US";
-		return getJson(url);
+		String url = "https://sellercentral.amazon.com/revenuecalculator/productmatch?searchKey=" + sku + "&countryCode=US&locale=en-US";
+		String json = getJson(url);
+		if(json ==null)
+		{
+			json = getJson(url);
+			if(json==null){
+				driver.get(url);
+				sleep(3000);
+				json = driver.findElement(By.tagName("body")).getText();
+				System.out.println("Getting direct json: " +  json);
+			}
+		}
+		return json;
 	}
 	
 	public synchronized String getInventory(String sku) {

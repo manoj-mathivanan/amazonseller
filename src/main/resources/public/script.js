@@ -305,7 +305,7 @@ function myFunction(arr) {
         	newreviewsclass.value = "tm-status-circle moving";
       }
       newreviewsdiv.setAttributeNode(newreviewsclass);
-      newreviewstd.appendChild(newreviewsdiv);
+      //newreviewstd.appendChild(newreviewsdiv);
       newreviewstd.appendChild(document.createTextNode(data[i].ratings + "\/" + data[i].totalreviews+ " (" +data[i].newreviews + ")" + ""));
       if(data[i].active === false){
     	  var newreviewsstrike = document.createAttribute("style");

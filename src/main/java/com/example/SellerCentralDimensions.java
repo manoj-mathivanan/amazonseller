@@ -35,7 +35,7 @@ public class SellerCentralDimensions implements Runnable{
 			
 			if(json2!=null) {
 				
-				System.out.println("Got value for available stock: " + json2);
+				//System.out.println("Got value for available stock: " + json2);
 				JSONObject obj = new JSONObject(json2);
 				JSONObject asd = new JSONObject(obj.get("result").toString());
 				JSONObject asinDetails = asd.getJSONObject("GetInventoryBreakdownData").getJSONObject("availableBreakdown");
