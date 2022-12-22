@@ -21,7 +21,7 @@ public class SellerCentralDimensions implements Runnable{
 			
 			if(json3!=null) {
 				
-				System.out.println("Got value: " + json3);
+				//System.out.println("Got value: " + json3);
 				Helper.asin.get(asin).updateDimensions(json3);
 				ErrorHandler.printError("(S)Dimensions","seller central success : " + asin);
 				

@@ -110,7 +110,7 @@ public class FBAFees implements Runnable{
 				Helper.asin.get(asin).refreshFBAfees();
 			}
 				
-			System.out.println("Got value for fbafees: " + output);
+			//System.out.println("Got value for fbafees: " + output);
 			ErrorHandler.printError("(S)FBA","seller central success : " + asin);
 
 			

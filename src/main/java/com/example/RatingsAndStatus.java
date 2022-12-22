@@ -27,7 +27,7 @@ public class RatingsAndStatus implements Runnable {
 			
 			if(json3!=null) {
 				
-				System.out.println("Got value: " + json3);
+				//System.out.println("Got value: " + json3);
 				JSONObject obj = new JSONObject(json3);
 				JSONObject asd = new JSONObject(obj.get("result").toString());
 				JSONObject asinDetails = asd.getJSONObject("GetPricingData");

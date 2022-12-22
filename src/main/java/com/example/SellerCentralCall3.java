@@ -201,6 +201,9 @@ public class SellerCentralCall3 {
 				sleep(3000);
 				json = driver.findElement(By.tagName("body")).getText();
 				System.out.println("Getting direct json: " +  json);
+				if(!json.startsWith("{")) {
+					return null;
+				}
 			}
 		}
 		return json;
