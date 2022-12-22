@@ -430,9 +430,9 @@ public class ASIN {
 					+ "where asin=?");
 
 			List<String> values = new ArrayList<String>();
-			values.add(dimensions.get("length").toString());
-			values.add(dimensions.get("width").toString());
-			values.add(dimensions.get("height").toString());
+			values.add(roundOff(dimensions.get("length").toString()));
+			values.add(roundOff(dimensions.get("width").toString()));
+			values.add(roundOff(dimensions.get("height").toString()));
 			values.sort(new valuesSorter());
 			length = values.get(2);
 			width = values.get(1);
@@ -442,7 +442,7 @@ public class ASIN {
 			stmt2.setString(2, length);
 			stmt2.setString(3, width);
 			stmt2.setString(4, height);
-			stmt2.setString(5, weight.get("weight").toString());
+			stmt2.setString(5, roundOff(weight.get("weight").toString()));
 			stmt2.setString(6, dtf.format(now));
 
 			if(compareStrings(length, rs.getString("expectedlength"))) {
@@ -478,14 +478,14 @@ public class ASIN {
 					mailheightmismatch = false;
 				}
 			}
-			if(compareStrings(weight.get("weight").toString(), rs.getString("expectedweight"))) {
+			if(compareStrings(roundOff(weight.get("weight").toString()), rs.getString("expectedweight"))) {
 				stmt2.setBoolean(10, false);
 				mailweightmismatch = true;
 			}
 			else {
 				stmt2.setBoolean(10,true);
 				if(mailweightmismatch && rs.getBoolean("sendMail")) {
-					Mailer.sendMail(asin,"weight",rs.getString("expectedweight"),weight.get("weight").toString(),rs.getString("title"));
+					Mailer.sendMail(asin,"weight",rs.getString("expectedweight"),roundOff(weight.get("weight").toString()),rs.getString("title"));
 					mailweightmismatch = false;
 				}
 			}
