@@ -112,14 +112,26 @@ public class Main {
 
 		application.run(args);
 
-		if(!Helper.isLocal) {
-			Jsoup.connect("http://34.93.97.27:8080/start").ignoreContentType(true).ignoreHttpErrors(true).timeout(10000).execute();
-			Mailer.sendMail("App started", "App Started", "ma.manoj@gmail.com");
-			Mailer.sendMail("App started", "App Started", "ramshan2008@gmail.com");
-		}
-		else {
-			Jsoup.connect("http://localhost:8080/start").ignoreContentType(true).ignoreHttpErrors(true).timeout(10000).execute();
-		}
+		new Thread(new Runnable() {
+			@Override
+			public void run() {
+				try {
+					Thread.sleep(9000);
+
+				if(!Helper.isLocal) {
+					Jsoup.connect("http://34.93.97.27:8080/start").ignoreContentType(true).ignoreHttpErrors(true).timeout(10000).execute();
+					Mailer.sendMail("App started", "App Started", "ma.manoj@gmail.com");
+					Mailer.sendMail("App started", "App Started", "ramshan2008@gmail.com");
+				}
+				else {
+					Jsoup.connect("http://localhost:8080/start").ignoreContentType(true).ignoreHttpErrors(true).timeout(10000).execute();
+				}
+				} catch (Exception e) {
+					throw new RuntimeException(e);
+				}
+			}
+		}).start();
+
 	}
 
 	@PostMapping("/upload")
