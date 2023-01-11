@@ -4,6 +4,14 @@
 xattr -d com.apple.quarantine chromedriver_mac
 ```
 
+```
+cd amazonseller
+git pull
+ps -ef |grep java
+kill
+mvn spring-boot:run > logs.txt 2>&1 & disown
+```
+
 A barebones Java app, which can easily be deployed to Heroku.
 
 This application supports the [Getting Started with Java on Heroku](https://devcenter.heroku.com/articles/getting-started-with-java) article - check it out.
