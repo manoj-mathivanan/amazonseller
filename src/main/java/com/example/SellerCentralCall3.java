@@ -258,7 +258,7 @@ public class SellerCentralCall3 {
 			try {
 			if(driver.getPageSource().contains("Log in")) {
 				driver.findElement(By.linkText("Log in")).click();
-				sleep(7000);
+				sleep(20000);
 				WebElement email = driver.findElement(By.name("email"));
 				email.sendKeys(username);
 				WebElement password = driver.findElement(By.name("password"));
