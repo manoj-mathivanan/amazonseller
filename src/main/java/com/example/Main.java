@@ -116,7 +116,7 @@ public class Main {
 			@Override
 			public void run() {
 				try {
-					Thread.sleep(9000);
+					Thread.sleep(30000);
 
 				if(!Helper.isLocal) {
 					Jsoup.connect("http://34.93.97.27:8080/start").ignoreContentType(true).ignoreHttpErrors(true).timeout(10000).execute();
