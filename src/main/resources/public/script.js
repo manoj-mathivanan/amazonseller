@@ -189,7 +189,7 @@ function myFunction(arr) {
         row.appendChild(weighttd);
 
       var dimtimetd = document.createElement("td");
-      dimtimetd.appendChild(document.createTextNode(data[i].lastpulled.substring(0, str.indexOf(" mins ago"))+" mins"));
+      dimtimetd.appendChild(document.createTextNode(data[i].lastpulled.substring(0, data[i].lastpulled.indexOf(" mins ago"))+" mins"));
       if(data[i].active === false){
     	  var dimtimestrike = document.createAttribute("style");
     	  dimtimestrike.value = "text-decoration:line-through;";
@@ -246,7 +246,7 @@ function myFunction(arr) {
       row.appendChild(fbatd);
 
       var fbatimetd = document.createElement("td");
-            fbatimetd.appendChild(document.createTextNode(data[i].fbalastpulled.substring(0, str.indexOf(" mins ago"))+" mins"));
+            fbatimetd.appendChild(document.createTextNode(data[i].fbalastpulled.substring(0, data[i].fbalastpulled.indexOf(" mins ago"))+" mins"));
             if(data[i].active === false){
           	  var fbatimestrike = document.createAttribute("style");
           	  fbatimestrike.value = "text-decoration:line-through;";
