@@ -167,6 +167,37 @@ function myFunction(arr) {
       }
       row.appendChild(heighttd);
 
+      var weighttd = document.createElement("td");
+        var weightdiv = document.createElement("div");
+        var weightclass = document.createAttribute("class");
+        if(classStatus){
+          weightclass.value = "tm-status-circle pending";
+        }else{
+          if(data[i].weightmismatch === "tick.png")
+            weightclass.value = "tm-status-circle moving";
+          else if(data[i].weightmismatch === "wrong.png")
+            weightclass.value = "tm-status-circle cancelled";
+        }
+        weightdiv.setAttributeNode(weightclass);
+        weighttd.appendChild(weightdiv);
+        weighttd.appendChild(document.createTextNode(data[i].obtainedweight));
+        if(data[i].active === false){
+          var weightstrike = document.createAttribute("style");
+          weightstrike.value = "text-decoration:line-through;";
+          weighttd.setAttributeNode(weightstrike);
+        }
+        row.appendChild(weighttd);
+
+      var dimtimetd = document.createElement("td");
+      dimtimetd.appendChild(document.createTextNode(data[i].lastpulled.substring(0, str.indexOf(" mins ago"))+" mins"));
+      if(data[i].active === false){
+    	  var dimtimestrike = document.createAttribute("style");
+    	  dimtimestrike.value = "text-decoration:line-through;";
+    	  dimtimetd.setAttributeNode(dimtimestrike);
+      }
+      row.appendChild(dimtimetd);
+
+
 	  var volumetd = document.createElement("td");
       volumetd.appendChild(document.createTextNode(data[i].obtainedvolume + " * "));
 		var textbox = document.createElement("input");
@@ -183,7 +214,7 @@ function myFunction(arr) {
     	  volumestrike.value = "text-decoration:line-through;";
     	  volumetd.setAttributeNode(volumestrike);
       }
-		volumetd.width = 170;
+		volumetd.width = 140;
       row.appendChild(volumetd);
 
 	var avoltd = document.createElement("td");
@@ -194,27 +225,6 @@ function myFunction(arr) {
     	  avoltd.setAttributeNode(avolstrike);
       }
       row.appendChild(avoltd);
-
-      var weighttd = document.createElement("td");
-      var weightdiv = document.createElement("div");
-      var weightclass = document.createAttribute("class");
-      if(classStatus){
-        weightclass.value = "tm-status-circle pending";
-      }else{
-        if(data[i].weightmismatch === "tick.png")
-          weightclass.value = "tm-status-circle moving";
-        else if(data[i].weightmismatch === "wrong.png")
-          weightclass.value = "tm-status-circle cancelled";
-      }
-      weightdiv.setAttributeNode(weightclass);
-      weighttd.appendChild(weightdiv);
-      weighttd.appendChild(document.createTextNode(data[i].obtainedweight));
-      if(data[i].active === false){
-    	  var weightstrike = document.createAttribute("style");
-    	  weightstrike.value = "text-decoration:line-through;";
-    	  weighttd.setAttributeNode(weightstrike);
-      }
-      row.appendChild(weighttd);
 
 
       var reftd = document.createElement("td");
@@ -234,6 +244,15 @@ function myFunction(arr) {
     	  fbatd.setAttributeNode(fbastrike);
       }
       row.appendChild(fbatd);
+
+      var fbatimetd = document.createElement("td");
+            fbatimetd.appendChild(document.createTextNode(data[i].fbalastpulled.substring(0, str.indexOf(" mins ago"))+" mins"));
+            if(data[i].active === false){
+          	  var fbatimestrike = document.createAttribute("style");
+          	  fbatimestrike.value = "text-decoration:line-through;";
+          	  fbatimetd.setAttributeNode(fbatimestrike);
+            }
+            row.appendChild(fbatimetd);
 
       var storagetd = document.createElement("td");
       storagetd.appendChild(document.createTextNode(data[i].storagefee));
