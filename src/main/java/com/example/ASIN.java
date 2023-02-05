@@ -753,14 +753,8 @@ public class ASIN {
 		Connection connection = null;
 		try { 
 			connection = Helper.dataSource.getConnection();
-			PreparedStatement stmt = connection.prepareStatement("INSERT INTO amazonasin(asin,sku,expectedlength,expectedwidth,expectedheight,ubc,ref) values(?,?,?,?,?,?,?)");
+			PreparedStatement stmt = connection.prepareStatement("INSERT INTO amazonasin(asin) values(?)");
 			stmt.setString(1, asin);
-			stmt.setString(2, "ththth");
-			stmt.setString(3, "18");
-			stmt.setString(4, "14");
-			stmt.setString(5, "8");
-			stmt.setString(6, "0");
-			stmt.setString(7, "0");
 			stmt.executeUpdate();
 			fetchValuesFromDB();
 
