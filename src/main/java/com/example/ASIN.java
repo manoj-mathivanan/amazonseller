@@ -60,6 +60,9 @@ public class ASIN {
 	public String fbafee;
 	public String storagefee;
 	public String sellingprice;
+
+	public String returns;
+	public String marketing;
 	public String productcost;
 	public String shipping;
 	public String profit;
@@ -180,6 +183,8 @@ public class ASIN {
 			fbafee = rs.getString("fbafee");
 			storagefee = rs.getString("storagefee");
 			sellingprice = rs.getString("sellingprice");
+			returns = rs.getString("returns");
+			marketing = rs.getString("marketing");
 			productcost = rs.getString("productcost");
 			shipping = rs.getString("shipping")==null||rs.getString("shipping").isEmpty()?"0":rs.getString("shipping");
 			profit = rs.getString("profit");
@@ -243,6 +248,8 @@ public class ASIN {
 		asinDetails.put("profit", roundOff(profit));
 		asinDetails.put("profitpercentage", roundOff(profitpercentage));
 		asinDetails.put("active", active);
+		asinDetails.put("returns", returns);
+		asinDetails.put("marketing", marketing);
 		String minutes = "";
 		if(lastpulled==null) {
 			minutes = "updating...";
@@ -537,7 +544,7 @@ public class ASIN {
 			
 			Double amazonFees = storage + fbaFees + referralFee;
 			shipping = shipping==null||shipping.isEmpty()?"0":shipping;
-			Double profit = Double.parseDouble(sellingprice) - Double.parseDouble(productcost) - Double.parseDouble(shipping) - amazonFees;
+			Double profit = Double.parseDouble(sellingprice) - Double.parseDouble(productcost) - Double.parseDouble(shipping) - amazonFees - Double.parseDouble(returns)*Double.parseDouble(sellingprice)/100 - Double.parseDouble(marketing)*Double.parseDouble(sellingprice)/100;
 			PreparedStatement stmt2 = connection.prepareStatement("update amazonasin set "
 					+ "fbafee=?,storagefee=?,profit=?,profitpercentage=?,profitstatus=?,fbalastpulled=?,ref=? "
 					+ "where asin=?");

@@ -309,6 +309,38 @@ public class Main {
 		return getCurrentValues().toString();
 
 	}
+
+	@RequestMapping(value = "/updateProfitDetails", method = RequestMethod.PUT, produces = "application/json")
+	String updateProfitDetails(@RequestBody String body) {
+
+		Connection connection = null;
+		try {
+			connection = Helper.dataSource.getConnection();
+			PreparedStatement stmt = null;
+			JSONObject profitCalc = new JSONObject(body);
+			String sql = "update amazonasin set returns = ? and marketing = ?";
+
+			stmt = connection.prepareStatement(sql);
+			stmt.setString(1, profitCalc.getString("returns"));
+			stmt.setString(2, profitCalc.getString("marketing"));
+			stmt.executeUpdate();
+			stmt.close();
+			connection.close();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			if(connection!=null)
+				try {
+					connection.close();
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+		}
+		return getCurrentValues().toString();
+
+	}
+
+
 	
 	@RequestMapping(value = "/updateUBC", method = RequestMethod.PUT, produces = "application/json")
 	String updateUBC(@RequestBody String body) {

@@ -16,6 +16,9 @@ function myFunction(arr) {
 
 	var totalprofitth =  document.getElementById('totalprofitth');
 	    totalprofitth.innerText = "NET PROFIT: " + arr.totalprofitPercentage + "%";
+	var totalprofitthclick = document.createAttribute("onclick");
+        totalprofitthclick.value = 'trigger_profit_edit(' + data[0].returns + ',' + data[0].marketing + ')';
+        totalprofitth.setAttributeNode(totalprofitthclick);
    
     var tabBody=document.getElementsByTagName("tbody").item(0);
 	tabBody.innerHTML = "";
@@ -399,6 +402,9 @@ $(window).load(function () {
   $('.popupCloseButton').click(function(){
       $('.popup_edit').hide();
   });
+  $('.profitCloseButton').click(function(){
+        $('.profit_edit').hide();
+    });
 
 });
 
@@ -470,6 +476,15 @@ function loadData(){
 	  
 	  
   }
+
+   function trigger_profit_edit(returns,marketing){
+
+        $('.profit_edit').show();
+
+  	  document.getElementById("returns").value = returns;
+  	  document.getElementById("marketing").value = marketing;
+
+    }
     
     function readreviews(i){
     	
@@ -530,6 +545,33 @@ function loadData(){
 	  
 	
   }
+
+    function updateProfit(){
+
+  	  var jsonbody = {};
+  	  jsonbody.returns = document.getElementById("returns").value;
+  	  jsonbody.marketing = document.getElementById("marketing").value;
+
+  	  $('.profit_edit').hide();
+
+  	var body = JSON.stringify(jsonbody);
+  	var xhttp = new XMLHttpRequest();
+  	  xhttp.onreadystatechange = function() {
+  		  if (this.readyState == 4){
+  	    		if(this.status == 200) {
+  	    			alert("updated");
+  	  	      location.reload(true);
+  	  	    }else{
+  	  	    	alert("update profit failed");
+  	  	    }
+  	  	    }
+  	  };
+  	  xhttp.open("PUT", "/updateProfitDetails", true);
+  	  xhttp.setRequestHeader("Content-type", "application/json");
+  	  xhttp.send(body);
+
+
+    }
 
 
 

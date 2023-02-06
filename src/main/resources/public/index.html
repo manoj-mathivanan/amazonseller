@@ -12,6 +12,7 @@
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/templatemo-style.css">
 <link rel="stylesheet" href="css/popup.css">
+	<link rel="stylesheet" href="css/profit.css">
 <link rel="stylesheet" href="css/ubcpopup.css">
 
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
@@ -123,6 +124,30 @@
 			<button onclick="deleteASIN2()">delete</button>
 		</div>
 	</div>
+
+	<div class="profit_edit">
+		<span class="helper"></span>
+		<div>
+			<div class="profitCloseButton">X</div>
+			<h3>Update Profit Details</h3>
+			<br />
+			<form>
+				<p>
+					<label for="returns">Returns</label> <input id="returns" name="returns"
+														  type="text" required/>
+				</p>
+				<br />
+				<p>
+					<label for="marketing">Marketing</label> <input id="marketing" name="marketing"
+														  type="text" required />
+				</p>
+				<br />
+			</form>
+			<button onclick="updateProfit()">Update</button>
+		</div>
+	</div>
+
+
 
 	<div class="ubc_edit">
 		<span class="helper"></span>

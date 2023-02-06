@@ -26,11 +26,11 @@ public class Helper {
 	public static ExecutorService fbaExecutor = Executors.newFixedThreadPool(1);
 	public static ExecutorService asinActiveExecutor = Executors.newFixedThreadPool(1);*/
 	public static ExecutorService executor;
-	public static long delay = 30000;
+	public static long delay = 15000;
 	public static SellerCentralCall3 sellerCentral = new SellerCentralCall3();
 	//public static long seconddelay = 10000;
 	public static boolean isLocal = false;
-	public static String testAsin = "B0BC9D4F3F";
+	public static String testAsin = "B0BNHTD3BR";
 	static {
 		executor = Executors.newFixedThreadPool(1);
 		isLocal = false;
