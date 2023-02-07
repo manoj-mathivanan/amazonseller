@@ -318,7 +318,7 @@ public class Main {
 			connection = Helper.dataSource.getConnection();
 			PreparedStatement stmt = null;
 			JSONObject profitCalc = new JSONObject(body);
-			String sql = "update amazonasin set returns = ? and marketing = ?";
+			String sql = "update amazonasin set returns = ?,marketing = ?";
 
 			stmt = connection.prepareStatement(sql);
 			stmt.setString(1, profitCalc.getString("returns"));
