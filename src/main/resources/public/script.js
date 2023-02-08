@@ -30,7 +30,7 @@ function myFunction(arr) {
       var lastpulledDim = str.substring(0, str.indexOf(" mins ago"));
       var classStatus=null;
       if(lastpulledDim){
-        if(lastpulledDim > 59 || lastpulledDim < 0){
+        if(lastpulledDim > 90 || lastpulledDim < 0){
           classStatus = "pending";
         }
       }else{

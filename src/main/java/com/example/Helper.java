@@ -30,7 +30,7 @@ public class Helper {
 	public static SellerCentralCall3 sellerCentral = new SellerCentralCall3();
 	//public static long seconddelay = 10000;
 	public static boolean isLocal = false;
-	public static String testAsin = "B0BNHTD3BR";
+	public static String testAsin = "B0BNHW2VV5";
 	static {
 		executor = Executors.newFixedThreadPool(1);
 		isLocal = false;
