@@ -80,7 +80,7 @@ public class Main {
 	
 	private static DecimalFormat df2 = new DecimalFormat("0.##");
 
-	private ScheduledTask taskScheduler;
+	//private ScheduledTask taskScheduler;
 	private static Timer refresher;
 
 	public static void main(String[] args) throws Exception {
@@ -116,7 +116,7 @@ public class Main {
 			@Override
 			public void run() {
 				try {
-					Thread.sleep(30000);
+					Thread.sleep(10000);
 
 				if(!Helper.isLocal) {
 					Jsoup.connect("http://34.93.97.27:8080/start").ignoreContentType(true).ignoreHttpErrors(true).timeout(10000).execute();
@@ -158,9 +158,9 @@ public class Main {
 			entry.getValue().startMonitor(delay);
 			delay = delay + 45000;
 		}
-		taskScheduler = new ScheduledTask();
+/*		taskScheduler = new ScheduledTask();
 		refresher = new Timer();
-		refresher.schedule(taskScheduler , 0, Helper.delay);
+		refresher.schedule(taskScheduler , 0, Helper.delay);*/
 		return "started";
 	}
 
@@ -208,7 +208,7 @@ public class Main {
 				}
 		}
 	}
-
+/*
 	public class ScheduledTask extends TimerTask {
 		public void run() {
 			try {
@@ -216,7 +216,7 @@ public class Main {
 				HttpClient client = Helper.getAllAcceptCertsClient();
 				String url = "https://pure-basin-71429.herokuapp.com/getStatus";
 				HttpGet request = new HttpGet(url);
-				request.addHeader("accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8");
+				request.addHeader("accept", "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng;q=0.8");
 				request.addHeader("accept-encoding", "chunked");
 				request.addHeader("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/71.0.3578.98 Safari/537.36");
 				request.addHeader("accept-language", "en-US,en;q=0.9,ms;q=0.8");
@@ -231,7 +231,7 @@ public class Main {
 			}
 		}
 	}
-
+*/
 	@RequestMapping("/asinValidator")
 	String asinValidator() {
 		return "index";
