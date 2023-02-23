@@ -32,10 +32,18 @@ public class Mailer {
 		sendMail(subject,content);
 		
 	}
+
+	public static void sendDimensionUpdateMail(String asin, String parameter, String newValue, String oldValue, String title) {
+
+		String content = "SKU: " + title + "\nASIN: " + asin + "\nParameter: " + parameter + "\nNew Value: " + newValue + "\nOld Value: " + oldValue;
+		String subject = "ASIN dimensions updated";
+		sendMail(subject,content);
+
+	}
 	
 	public static void sendMail(String subject, String content) {
 		sendMail(subject,content,"ma.manoj@gmail.com");
-		sendMail(subject,content,"rajkumar.thanudhasan@gmail.com");
+		//sendMail(subject,content,"rajkumar.thanudhasan@gmail.com");
 		sendMail(subject,content,"ramshan2008@gmail.com");
 	}
 	

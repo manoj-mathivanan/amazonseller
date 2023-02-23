@@ -21,10 +21,6 @@ public class ASIN {
 	public String title;
 	public Boolean buybox;
 
-	public String length;
-	public String width;
-	public String height;
-
 	public String expectedlength;
 	public String expectedwidth;
 	public String expectedheight;
@@ -406,6 +402,14 @@ public class ASIN {
 			return false;
 	}
 
+	private boolean isEqualString(String newVal, String oldVal) {
+		if(Double.parseDouble(newVal)==Double.parseDouble(oldVal)) {
+			return true;
+		}
+		else
+			return false;
+	}
+
 	public void updateDimensions(String amazonOutput) {
 		Connection connection = null;
 		try { 
@@ -427,6 +431,9 @@ public class ASIN {
 			JSONObject details = (new JSONObject((new JSONObject(amazonOutput)).get("result").toString())).getJSONObject("GetInventoryBreakdownData").getJSONObject("itemDetails");
 			JSONObject dimensions = details.getJSONObject("dimension");
 			JSONObject weight = details.getJSONObject("weight");
+			String length;
+			String width;
+			String height;
 
 			PreparedStatement stmt2 = connection.prepareStatement("update amazonasin set "
 					+ "title=?,obtainedlength=?,obtainedwidth=?,obtainedheight=?,obtainedweight=?,"
@@ -444,6 +451,7 @@ public class ASIN {
 			length = values.get(2);
 			width = values.get(1);
 			height = values.get(0);
+			String weightval = roundOff(weight.get("weight").toString());
 
 			stmt2.setString(1, rs.getString("title"));
 			stmt2.setString(2, length);
@@ -507,6 +515,15 @@ public class ASIN {
 			stmt2.setString(16, asin);
 
 			stmt2.executeUpdate();
+
+			if(!isEqualString(length,obtainedlength))
+				Mailer.sendDimensionUpdateMail(asin,"length",length,obtainedlength,title);
+			if(!isEqualString(width,obtainedwidth))
+				Mailer.sendDimensionUpdateMail(asin,"width",width,obtainedwidth,title);
+			if(!isEqualString(height,obtainedheight))
+				Mailer.sendDimensionUpdateMail(asin,"height",height,obtainedheight,title);
+			if(!isEqualString(weightval,obtainedweight))
+				Mailer.sendDimensionUpdateMail(asin,"weight",weightval,obtainedweight,title);
 
 			fetchValuesFromDB();
 
