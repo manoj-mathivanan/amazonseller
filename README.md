@@ -5,6 +5,10 @@ xattr -d com.apple.quarantine chromedriver_mac
 ```
 
 ```
+*/1 * * * * /home/ma_manoj/amazonseller/watchdog.sh
+```
+
+```
 cd amazonseller
 git pull
 ps -ef |grep java

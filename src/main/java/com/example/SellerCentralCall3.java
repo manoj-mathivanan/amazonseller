@@ -47,9 +47,15 @@ public class SellerCentralCall3 {
 				System.setProperty("webdriver.chrome.driver", "/Users/mmathivanan/git/amazon/chromedriver_mac");
 			}
 			else {
-				options.addArguments("--headless");     
+				options.addArguments("--headless");
 				options.addArguments("--disable-gpu");
-				options.addArguments("—-disk-cache-size=0");
+				options.addArguments("--disable-crash-reporter");
+				options.addArguments("--disable-extensions");
+				options.addArguments("--disable-in-process-stack-traces");
+				options.addArguments("--disable-logging");
+				options.addArguments("--disable-dev-shm-usage");
+				options.addArguments("--log-level=3");
+				options.addArguments("--output=/dev/null");
 				options.addArguments("--enable-low-end-device-mode");
 				options.addArguments("--disable-backing-store-limit");
 				HashMap<String, Object> prefs = new HashMap<String, Object>();
