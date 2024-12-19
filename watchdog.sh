@@ -3,9 +3,9 @@
 export PEPMART_HOME="/home/ma_manoj/amazonseller/"
 
 function restart_jars() {
-    ps -ef |grep Main | grep -v grep | awk '{print $2}'| xargs kill
+    #ps -ef |grep Main | grep -v grep | awk '{print $2}'| xargs kill
 
-    cd PEPMART_HOME
+    cd $PEPMART_HOME
     mvn spring-boot:run > logs.txt 2>&1 & disown
 }
 
